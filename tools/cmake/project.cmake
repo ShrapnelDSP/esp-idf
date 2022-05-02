@@ -416,7 +416,7 @@ macro(project project_name)
     # executable. This is also used by idf_size.py to detect the target
     set(project_elf_src ${CMAKE_BINARY_DIR}/project_elf_src_${IDF_TARGET}.c)
     add_custom_command(OUTPUT ${project_elf_src}
-        COMMAND ${CMAKE_COMMAND} -E touch ${project_elf_src}
+        COMMAND ${CMAKE_COMMAND} -E echo "typedef int make_iso_compilers_happy;" > ${project_elf_src}
         VERBATIM)
     add_custom_target(_project_elf_src DEPENDS "${project_elf_src}")
     add_executable(${project_elf} "${project_elf_src}")
