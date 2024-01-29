@@ -1,6 +1,9 @@
 idf_component_register(SRCS "esp_rest_main.c"
                             "rest_server.c"
-                    INCLUDE_DIRS ".")
+                    INCLUDE_DIRS "."
+                )
+
+target_link_libraries(${COMPONENT_LIB} PRIVATE modern_json)
 
 if(CONFIG_EXAMPLE_WEB_DEPLOY_SF)
     set(WEB_SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../front/web-demo")
